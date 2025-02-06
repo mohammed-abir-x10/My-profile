@@ -2,17 +2,78 @@
     <head>
         <meta charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
         <title>My profile</title>
     </head>
     <body>
+       <aside class="sidebar">
+        <header class="sidebar-header">
+            <a href="" class="header-logo">
+                <img src="../Akatsuki.jpg" alt="Image">
+            </a>
+            <button class="toggle sidebar-toggler">
+                <span class="material-symbols-rounded">
+                    chevron_left
+                </span>
+            </button>
+        </header>
+
+        <nav class="sidebar-nav">
+            <!-- Primary nav -->
+            <ul class="nav-list primary-nav">
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav icon material-symbols-rounded">dashboard</span>
+                        <span class="nav-label">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav icon material-symbols-rounded">analytics</span>
+                        <span class="nav-label">Analytics</span>
+                    </a>
+                </li> 
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav icon material-symbols-rounded">expand_circle_down</span>
+                        <span class="nav-label">Projects</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Secondary bottom nav -->
+            <ul class="nav-list secondary-nav">
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav icon material-symbols-rounded">account_circle</span>
+                        <span class="nav-label">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav icon material-symbols-rounded">logout</span>
+                        <span class="nav-label">Logout</span>
+                    </a>
+                </li> 
+            </ul>
+        </nav>
+       </aside>
+
+
         <div class="info">
         <img src="https://graph.facebook.com/100078140834638/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662" alt="Profile pic" id="img">
+          
             <div class="txt">
                  <p>
                      <h1>Hi, I'm Mohammed Abir</h1>
+                     <h2>Nothing more i can tell Nothing less you can see</h2>
                  </p>
-             </div>    
+            </div>    
+        </div>
+        <div class="btn">
+        <button>Contact Me</button>
+        <button>About Me</button>
         </div>
     </body>
 </html>

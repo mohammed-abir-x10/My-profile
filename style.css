@@ -8,6 +8,7 @@
 }
 
 body{
+    text-align: center;
     min-height: 100vh;
     background: linear-gradient(#F1FAFF,#cbe4ff);
 }
@@ -17,6 +18,7 @@ body{
     position: fixed;
     margin: 16px;
     border-radius: 16px;
+    overflow: hidden;
     background: #151a2d;
     height: calc(100vh - 32px);
     transition: 0.4s ease;
@@ -34,7 +36,15 @@ body{
     justify-content: space-between;
 }
 
-.sidebar-header .toggler {
+.sidebar-header .header-logo img {
+    width: 46px;
+    height: 46px;
+    display: block;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.sidebar-header .sidebar-toggler {
     position: absolute;
     right: 20px;
     height: 35px;
@@ -50,8 +60,12 @@ body{
     transition: 0.4s ease;
 }
 
-.sidebar.collapsed .sidebar-header .toggler {
+.sidebar.collapsed .sidebar-header .sidebar-toggler { 
     transform: translate(-4px, 65px);
+}
+
+.sidebar.collapsed .sidebar-header .sidebar-toggler span {
+    transform: rotate(180deg);
 }
 
 .sidebar-header .toggler:hover {
@@ -60,15 +74,9 @@ body{
 
 .sidebar-header .toggler span {
     font-size: 1.75rem;
+    transition: 0.4s ease;
 }
 
-.sidebar-header .header-logo img {
-    width: 46px;
-    height: 46px;
-    display: block;
-    object-fit: contain;
-    border-radius: 50%;
-}
 
 .sidebar-nav .nav-list {
     list-style: none;
@@ -91,6 +99,7 @@ body{
     border-radius: 8px;
     align-items: center;
     padding: 12px 15px;
+    white-space: nowrap;    
     text-decoration: none;
     transition: 0.4s ease;
 }
@@ -100,7 +109,7 @@ body{
     background: #fff;
 }
 
-.sidebar-nav .nav-link .nav-label{
+.sidebar-nav .nav-link .nav-label {
     transition: opacity 0.4s ease;
 }
 
@@ -109,10 +118,49 @@ body{
     pointer-events: none;
 }
 
+.sidebar-nav .nav-item {
+    position: relative;
+}
+
+.sidebar-nav .nav-tooltip {
+    position: absolute;
+    display: none;
+    top: -10px;
+    left: calc(100% + 25px);
+    opacity: 0;
+    pointer-events: none;
+    color: #151a2d;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #fff;
+    white-space: nowrap;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0s;
+}
+
+.sidebar.collapsed .sidebar-nav .nav-tooltip {
+    display: block;
+}
+
+.sidebar-nav .nav-item:hover .nav-tooltip {
+    opacity: 1;
+    pointer-events: auto; 
+    transform: translateY(50%);
+    transition: 0.4s ease;
+}
+
 .sidebar-nav .secondary-nav {
     position: absolute;
     bottom: 30px;
     width: 100%;
+}
+
+div.info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 50px;
 }
 
 #img{
@@ -126,9 +174,4 @@ body{
     padding-left: 25px;
 }
 
-
-.btn{
-    text-align: center;
-    margin: auto;
-}
 

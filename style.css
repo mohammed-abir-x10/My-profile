@@ -150,9 +150,6 @@ div.icon {
 div.icon a {
   margin: 15px;
 }
-h1 {
-  
-}
 img {
   width: 200px;
   border-radius: 50%;
@@ -175,6 +172,9 @@ footer {
   img{
     width: 150px;
     border-radius: 50%;
+  }
+  h1{
+    font-size: 5px;
   }
   footer {
     font-weight: bold;

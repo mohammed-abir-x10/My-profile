@@ -154,13 +154,7 @@ img {
   width: 200px;
   border-radius: 50%;
 }
-footer {
-  font-weight: bold;
-  text-align: center;
-  padding: 3px;
-  border-top: 1px solid whitesmoke;
-  color: white;
-}
+
 
 @media(max-width: 800px){
   body{
@@ -175,13 +169,6 @@ footer {
   }
   h1{
     font-size: 25px;
-  }
-  footer {
-    font-weight: bold;
-    text-align: center;
-    padding: 3px;
-    border-top: 1px solid whitesmoke;
-    color: white;
   }
   .container{
     border: none;

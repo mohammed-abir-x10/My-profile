@@ -22,6 +22,7 @@ body{
   color: var(--text-clr);
   display: grid;
   grid-template-columns: auto 1fr;
+  overflow: hidden;
 }
 #sidebar{
   box-sizing: border-box;

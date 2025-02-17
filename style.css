@@ -175,7 +175,7 @@ img {
     position: fixed;
     top: unset;
     bottom: 0;
-
+    margin: 15px;
     > ul{
       padding: 0;
       display: grid;

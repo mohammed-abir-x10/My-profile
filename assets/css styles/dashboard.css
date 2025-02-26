@@ -118,8 +118,7 @@ body{
     background-color: var(--hover-clr);
   }
 .container{
-    margin: 25px 30px ;
-    width: 40%;
+    margin: auto 30px ;
     text-align: center;
 }
 .container .item {
@@ -186,17 +185,6 @@ body{
   main{
     padding: 2em 1em 60px 1em;
   }
-  img{
-    width: 150px;
-    border-radius: 50%;
-  }
-  h1{
-    font-size: 25px;
-  }
-  .container{
-    border: none;
-    padding: 0;
-  }
   #sidebar{
     height: 60px;
     width: 100%;
@@ -208,12 +196,12 @@ body{
     bottom: 0;
 
     > ul{
-      padding: 0;
+      padding: 0 5px;
       display: grid;
-      grid-auto-columns: 60px;
       grid-auto-flow: column;
       align-items: center;
-      overflow-x: scroll;
+      overflow:hidden;
+      z-index: 2;
     }
     ul li{
       height: 100%;

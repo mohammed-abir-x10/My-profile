@@ -132,7 +132,7 @@ main p{
   margin-bottom: 20px;
   padding: min(3em, 15%);
 
-  h2, p { margin-top: 1em }
+  h1, p { margin-top: 1em }
 }
 div.icon {
   display: flex;
@@ -143,6 +143,7 @@ div.icon a {
   margin: 15px;
 }
 img {
+  margin: 20px;
   width: 200px;
   border-radius: 50%;
 }
@@ -156,6 +157,7 @@ img {
     padding: 2em 1em 60px 1em;
   }
   img{
+    margin: 20px;
     width: 150px;
     border-radius: 50%;
   }
@@ -175,11 +177,9 @@ img {
     position: fixed;
     top: unset;
     bottom: 0;
-    margin: 15px;
     > ul{
-      padding: 0;
+      padding: 0  5px;
       display: grid;
-      grid-auto-columns: 60px;
       grid-auto-flow: column;
       align-items: center;
       overflow-x: scroll;

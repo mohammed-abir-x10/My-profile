@@ -9,12 +9,11 @@
   }
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
     min-height: 100vh;
+    min-height: 100dvh;
     background-color: var(--base-clr);
+    display: grid;
+    grid-template-columns: auto 1fr;
 }
 #sidebar{
   box-sizing: border-box;
@@ -170,6 +169,7 @@ body {
 /* Calendar Styles */
 .calendar {
     margin: 10px;
+    width: 100%;
     background-color: whitesmoke;
     padding: 20px;
     border-radius: 10px;
@@ -258,12 +258,13 @@ body {
     bottom: 0;
 
     > ul{
-      padding: 0;
+      padding: 0 5px;
       display: grid;
       grid-auto-columns: 60px;
       grid-auto-flow: column;
       align-items: center;
-      overflow-x: scroll;
+      overflow:hidden;
+      z-index: 2;
     }
     ul li{
       height: 100%;

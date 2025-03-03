@@ -1,77 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Image generator | Mohammed Abir</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css styles/image generator.css">
-    <script src="./assets/scripts/image-genarator.js"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css styles/image generator.css" />
+  </head>
+  <body class="dark-theme">
     <div class="container">
-        <!--- Header --->
-        <header class="header">
-            <div class="logo-wrapper">
-                <div class="logo">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                </div>
-                <h1>AI Image generator</h1>
+      <!--- Header --->
+      <header class="header">
+        <div class="logo-wrapper">
+          <div class="logo">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h1>AI Image generator</h1>
+        </div>
+
+        <button class="theme-toggle">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </header>
+
+      <div class="main-content">
+        <form action="#" class="prompt-form">
+          <div class="prompt-container">
+            <textarea
+              class="prompt-input"
+              placeholder="Describe your imagination in detail..."
+              required
+              autofocus
+            ></textarea>
+            <button type="button" class="prompt-btn">
+              <i class="fa-solid fa-dice"></i>
+            </button>
+          </div>
+
+          <!-- Prompt Actions -->
+          <div class="prompt-action">
+            <div class="select-wrapper">
+              <select class="custom-select" id="model-selected" required>
+                <option value="" selected disabled>Select Model</option>
+                <option value="black-forest-labs/FLUX.1-dev">FLUX.1-dev</option>
+                <option value="black-forest-labs/FLUX.1-schemeII">
+                  FLUX.1-schemeII
+                </option>
+                <option value="stabilityai/stable-diffusion-xI-base-1.0">
+                  Stable Diffusion XL
+                </option>
+                <option value="runwayml/stable-diffusion-v1-5">
+                  Stable Diffusion v1.5
+                </option>
+                <option value="prompthero/openjourney">Openjourney</option>
+              </select>
             </div>
 
-            <button class="theme-toggle">
-                <i class="fa-solid fa-moon"></i>
+            <div class="select-wrapper">
+              <select class="custom-select" id="count-select" required>
+                <option value="" selected disabled>Image count</option>
+                <option value="1">1 Image</option>
+                <option value="2">2 Image</option>
+                <option value="3">3 Image</option>
+                <option value="4">4 Image</option>
+              </select>
+            </div>
+
+            <div class="select-wrapper">
+              <select class="custom-select" id="ratio-select" required>
+                <option value="" selected disabled>Aspect Ratio</option>
+                <option value="1/1">Square (1:1)</option>
+                <option value="16/9">Landscape (16:9)</option>
+                <option value="9/16">Portait (9:16)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="generate-btn">
+              <i class="fa-solid fa-wand-sparkles"></i>
+              Generate
             </button>
-        </header>
+          </div>
 
-        <div class="main-content">
-            <form action="#" class="promp-form">
-                <div class="prompt-container">
-                    <textarea class="prompt-input" placeholder="Describe your imagination in detail..." required autofocus></textarea>
-                    <button type="button" class="prompt-btn">
-                        <i class="fa-solid fa-dice"></i>
-                    </button>
-                </div>
-
-                <!-- Prompt Actions -->
-                <div class="prompt-action">
-                    <div class="select-wrapper">
-                        <select class="custom-select" required>
-                            <option value="" selected disabled>Select Model</option>
-                            <option value="black-forest-labs/FLUX.1-dev">FLUX.1-dev</option>
-                            <option value="black-forest-labs/FLUX.1-schemeII">FLUX.1-schemeII</option>
-                            <option value="stabilityai/stable-diffusion-xI-base-1.0">Stable Diffusion XL</option>
-                            <option value="runwayml/stable-diffusion-v1-5">Stable Diffusion v1.5</option>
-                            <option value="prompthero/openjourney">Openjourney</option>
-                        </select>
-                    </div>
-
-                    <div class="select-wrapper">
-                        <select class="custom-select" required>
-                            <option value="" selected disabled>Image count</option>
-                            <option value="1">1 Image</option>
-                            <option value="2">2 Image</option>
-                            <option value="3">3 Image</option>
-                            <option value="4">4 Image</option>
-                        </select>
-                    </div>
-
-                    <div class="select-wrapper">
-                        <select class="custom-select" required>
-                            <option value="" selected disabled>Aspect Ratio</option>
-                            <option value="1/1">Square (1:1)</option>
-                            <option value="16/9">Landscape (16:9)</option>
-                            <option value="9/16">Portait (9:16)</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="generate-btn">
-                        <i class="fa-solid fa-wand-sparkles"></i>
-                        Generate
-                    </button>
-                </div>
-            </form>
-        </div>
+          <!-- Result Gallery Grid -->
+          <div class="gallery-grid">
+            <!--          <div class="img-card loading">
+              <div class="status-conatainer">
+                <div class="spinner"></div>
+                <i class="fa-solid fa-triangle-exclamtion"></i>
+                <p class="status-txt">Generating...</p>
+              </div>
+              <img src="./assets/images/test.png" class="result-img" />
+              <div class="image-ovelay">
+                <button class="img-download-btn">
+                  <i class="fa-solid fa-download"></i>
+                </button>
+              </div>
+            </div>-->
+          </div>
+        </form>
+      </div>
     </div>
-</body>
+
+    <script src="./assets/scripts/image-genarator.js"></script>
+  </body>
 </html>

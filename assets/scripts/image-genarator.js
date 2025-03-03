@@ -30,7 +30,7 @@ const examplePrompt = [
 (() => {
   const savedTheme = localStorage.getItem("theme");
   const systemPrefersDark = window.matchMedia(
-    "(prefers-color-schema: dark)"
+    "(prefers-color-scheme: dark)"
   ).matches;
   const isDarkTheme =
     savedTheme === "dark" || (!savedTheme && systemPrefersDark);
@@ -42,6 +42,7 @@ const examplePrompt = [
 //Switch between light and dark themes
 const toggleTheme = () => {
   const isDarkTheme = document.body.classList.toggle("dark-theme");
+  localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
   themeToggle.querySelector("i").className = isDarkTheme
     ? "fa-solid fa-sun"
     : "fa-solid fa-moon";
@@ -114,7 +115,7 @@ const createImageCards = (
     gridGallery.innerHTML += `<div class="img-card loading" id="img-card-${i}" style="aspect-ratio: ${aspectRatio}">
               <div class="status-conatainer">
                 <div class="spinner"></div>
-                    <i class="fa-solid fa-triangle-exclamtion"></i>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
                     <p class="status-txt">Generating...</p>
                </div>
             </div>`;

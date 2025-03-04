@@ -2,6 +2,7 @@ const themeToggle = document.querySelector(".theme-toggle");
 const promptForm = document.querySelector(".prompt-form");
 const promptInput = document.querySelector(".prompt-input");
 const promptBtn = document.querySelector(".prompt-btn");
+const generateBtn = document.querySelector(".generate-btn");
 const modelSelect = document.getElementById("model-select");
 const countSelect = document.getElementById("count-select");
 const ratioSelect = document.getElementById("ratio-select");
@@ -64,7 +65,7 @@ const updateImageCard = (imgIndex, imgUrl) => {
   if (!imgCard) return;
   imgCard.classList.remove("loading");
   imgCard.innerHTML = `<img src="${imgUrl}" class="result-img" />
-              <div class="image-ovelay">
+              <div class="image-overlay">
                 <a href="${imgUrl}" class="img-download-btn" download="${Date.now()}.png">
                   <i class="fa-solid fa-download"></i>
                 </a>
@@ -78,6 +79,7 @@ const generateImages = async (
 ) => {
   const MODEL_URL = `https://api-inference.huggingface.co/models/${selectedModel}`;
   const { width, height } = getImageDimensions(aspectRatio);
+  generateBtn.setAttribute("disabled", "true");
 
   const imagePromise = Array.from({ length: imageCount }, async (_, i) => {
     //send request to the API
@@ -99,9 +101,14 @@ const generateImages = async (
       updateImageCard(i, URL.createObjectURL(result));
     } catch (error) {
       console.log(error);
+      const imgCard = document.getElementById(`img-card-${i}`);
+      imgCard.classList.replace("loading", "error");
+      imgCard.querySelector("status-txt").textContent =
+        "Generation failed! Check console for more details.";
     }
   });
   await Promise.allSettled(imagePromise);
+  generateBtn.removeAttribute("disabled");
 };
 //create placeholders cards wuth loading spinners
 const createImageCards = (

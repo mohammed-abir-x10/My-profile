@@ -52,7 +52,7 @@ body {
 }
 .container {
   width: 900px;
-  max-width : 100%;
+  max-width: 100%;
   padding: 32px;
   position: relative;
   border-radius: 23px;
@@ -189,7 +189,7 @@ body.dark-theme .container {
   color: var(--color-placeholder);
   transform: translateY(-50%);
 }
-.prompt-action:where(.custom-select, .generate-btn) {
+.prompt-action :where(.custom-select, .generate-btn) {
   cursor: pointer;
   padding: 12px 20px;
   font-size: 1rem;
@@ -220,6 +220,10 @@ body.dark-theme .container {
   border: none;
   color: #fff;
   background: var(--color-gradient);
+}
+.prompt-action .generate-btn:disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 .prompt-action .generate-btn:hover {
   transform: translateY(-2px);
@@ -273,10 +277,10 @@ body.dark-theme .container {
   height: 100%;
   object-fit: cover;
 }
-.gallery-grid .img-card:is(.result-img, .image-ovelay) {
+.gallery-grid .img-card:is(.result-img, .image-overlay) {
   display: none;
 }
-.gallery-grid .img-card .image-ovelay {
+.gallery-grid .img-card .image-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -289,14 +293,17 @@ body.dark-theme .container {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
   transition: all 0.3s ease;
 }
-.gallery-grid .img-card:hover .image-ovelay {
+.gallery-grid .img-card:hover .image-overlay {
   opacity: 1;
   pointer-events: auto;
 }
-.gallery-grid .img-card .image-ovelay .img-download-btn {
+.gallery-grid .img-card .image-overlay .img-download-btn {
   height: 45px;
   width: 45px;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   backdrop-filter: blur(5px);
   border-radius: 50%;
   border: none;
@@ -304,7 +311,7 @@ body.dark-theme .container {
   background: rgba(255, 255, 255, 0.25);
   transition: all 0.3s ease;
 }
-.gallery-grid .img-card .image-ovelay .img-download-btn:hover {
+.gallery-grid .img-card .image-overlay .img-download-btn:hover {
   transform: scale(1.05);
   background: rgba(255, 255, 255, 0.4);
 }
@@ -325,4 +332,25 @@ body.dark-theme .container {
   font-size: 0.85rem;
   text-align: center;
   color: var(--color-placeholder);
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 18px;
+  }
+  .header .logo-wrapper .logo {
+    height: 50px;
+    width: 51px;
+    font-size: 1.25rem;
+  }
+  .header .logo-wrapper h1 {
+    font-size: 1.7rem;
+  }
+  .main-content .prompt-action {
+    grid-template-columns: 1fr;
+    margin-top: -10px;
+  }
+  .prompt-action .generate-btn {
+    margin: 10px 0 0;
+  }
+  .gallery-grid .img-card .image-overlay;
 }

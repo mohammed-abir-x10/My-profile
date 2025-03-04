@@ -189,7 +189,7 @@ body.dark-theme .container {
   color: var(--color-placeholder);
   transform: translateY(-50%);
 }
-.prompt-action :where(.custom-select, .generate-btn) {
+.prompt-action:where(.custom-select, .generate-btn) {
   cursor: pointer;
   padding: 12px 20px;
   font-size: 1rem;
